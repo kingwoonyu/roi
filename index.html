@@ -19,16 +19,32 @@
             font-family: "微软雅黑", sans-serif;
             background-color: var(--bg-color);
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
+            padding: 0; /* 移除 padding，由内部容器控制 */
+        }
+
+        /* 顶部咨询条 */
+        .top-banner {
+            background-color: #333; /* 深灰色背景 */
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .top-banner span {
+            color: #FFEB3B; /* 黄色强调 QQ 号 */
+            font-weight: bold;
+            margin-left: 5px;
         }
 
         .container {
             display: flex;
             gap: 20px;
             max-width: 1300px;
-            width: 100%;
+            width: 95%;
+            margin: 20px auto; /* 居中显示 */
             height: fit-content;
         }
 
@@ -41,140 +57,37 @@
         }
 
         /* 左侧输入栏 */
-        .left-panel {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .input-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .input-group label {
-            flex: 1;
-            font-size: 14px;
-            color: var(--text-gray);
-        }
-
-        .input-group input {
-            width: 100px;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-            color: var(--accent-pink);
-            outline: none;
-        }
-
-        .calc-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--primary-blue);
-            color: white;
-            border: none;
-            border-radius: 22px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 20px 0;
-            transition: opacity 0.2s;
-        }
-
+        .left-panel { flex: 1; min-width: 300px; }
+        .input-group { display: flex; align-items: center; margin-bottom: 12px; }
+        .input-group label { flex: 1; font-size: 14px; color: var(--text-gray); }
+        .input-group input { width: 100px; padding: 8px; border: 1px solid #ddd; border-radius: 5px; text-align: center; font-weight: bold; color: var(--accent-pink); outline: none; }
+        .calc-btn { width: 100%; padding: 12px; background-color: var(--primary-blue); color: white; border: none; border-radius: 22px; font-size: 16px; font-weight: bold; cursor: pointer; margin: 20px 0; transition: opacity 0.2s; }
         .calc-btn:hover { opacity: 0.9; }
 
         /* 左侧结果显示区 */
-        .result-box {
-            background-color: var(--light-blue);
-            border-radius: 15px;
-            padding: 15px;
-            color: white;
-            text-align: center;
-        }
-
+        .result-box { background-color: var(--light-blue); border-radius: 15px; padding: 15px; color: white; text-align: center; }
         .res-item { margin-bottom: 15px; }
-        .res-item:last-child { margin-bottom: 0; }
-        .res-label { font-size: 12px; font-weight: bold; display: block; }
         .res-value { font-size: 20px; font-weight: bold; }
 
         /* 中间表格栏 */
-        .mid-panel {
-            flex: 1.2;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .table-container {
-            flex-grow: 1;
-            overflow-y: auto;
-            max-height: 700px;
-            border: 1px solid #eee;
-            border-radius: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th {
-            position: sticky;
-            top: 0;
-            background: #f8f9fa;
-            padding: 12px;
-            font-size: 14px;
-            border-bottom: 2px solid #eee;
-        }
-
-        td {
-            padding: 10px;
-            text-align: center;
-            border-bottom: 1px solid #f9f9f9;
-            font-size: 14px;
-        }
-
+        .mid-panel { flex: 1.2; display: flex; flex-direction: column; }
+        .table-container { flex-grow: 1; overflow-y: auto; max-height: 700px; border: 1px solid #eee; border-radius: 10px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { position: sticky; top: 0; background: #f8f9fa; padding: 12px; font-size: 14px; border-bottom: 2px solid #eee; }
+        td { padding: 10px; text-align: center; border-bottom: 1px solid #f9f9f9; font-size: 14px; }
         .blue-text { color: #1976D2; font-weight: bold; }
 
         /* 右侧模拟面板 */
-        .right-panel {
-            flex: 1;
-            background-color: var(--dark-blue);
-            color: white;
-            min-width: 300px;
-        }
-
-        .sim-title {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
+        .right-panel { flex: 1; background-color: var(--dark-blue); color: white; min-width: 300px; }
+        .sim-title { text-align: center; font-size: 18px; margin-bottom: 30px; }
         .sim-input-group { margin-bottom: 20px; }
         .sim-input-group label { display: block; font-size: 14px; margin-bottom: 8px; }
-        .sim-input-group input {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .divider {
-            height: 2px;
-            background-color: #1565C0;
-            margin: 30px 0;
-        }
-
+        .sim-input-group input { width: 100%; box-sizing: border-box; padding: 10px; border-radius: 5px; border: none; font-size: 16px; font-weight: bold; text-align: center; }
+        .divider { height: 2px; background-color: #1565C0; margin: 30px 0; }
         .sim-res-item { margin-bottom: 25px; }
         .sim-res-label { color: #BBDEFB; font-size: 13px; display: block; margin-bottom: 5px; }
         .sim-res-value { font-size: 24px; font-weight: bold; }
 
-        /* 移动端适配 */
         @media (max-width: 1000px) {
             .container { flex-direction: column; }
             .mid-panel { order: 3; }
@@ -182,6 +95,10 @@
     </style>
 </head>
 <body>
+
+<div class="top-banner">
+    业务咨询与定制服务 <span>QQ：2632409710</span>
+</div>
 
 <div class="container">
     <div class="card left-panel">
@@ -212,54 +129,27 @@
         <div class="table-container">
             <table id="roi-table">
                 <thead>
-                    <tr>
-                        <th>广告 ROI</th>
-                        <th>对应利润率</th>
-                    </tr>
+                    <tr><th>广告 ROI</th><th>对应利润率</th></tr>
                 </thead>
-                <tbody>
-                    </tbody>
+                <tbody></tbody>
             </table>
         </div>
     </div>
 
     <div class="card right-panel">
         <div class="sim-title">【 模拟销量计算器 】</div>
-        
-        <div class="sim-input-group">
-            <label>预期总销售额:</label>
-            <input type="number" id="sim-sales" value="100000">
-        </div>
-
-        <div class="sim-input-group">
-            <label>设定投放 ROI:</label>
-            <input type="number" id="sim-roi" value="8.0" step="0.1">
-        </div>
-
+        <div class="sim-input-group"><label>预期总销售额:</label><input type="number" id="sim-sales" value="100000"></div>
+        <div class="sim-input-group"><label>设定投放 ROI:</label><input type="number" id="sim-roi" value="8.0" step="0.1"></div>
         <div class="divider"></div>
-
-        <div class="sim-res-item">
-            <span class="sim-res-label">预计实收金额:</span>
-            <div class="sim-res-value" id="sim-actual-received">¥0</div>
-        </div>
-        <div class="sim-res-item">
-            <span class="sim-res-label">当前设定ROI:</span>
-            <div class="sim-res-value" id="sim-display-roi">0.00</div>
-        </div>
-        <div class="sim-res-item">
-            <span class="sim-res-label">综合利润率:</span>
-            <div class="sim-res-value" id="sim-margin-rate">0%</div>
-        </div>
-        <div class="sim-res-item">
-            <span class="sim-res-label">预计总利润:</span>
-            <div class="sim-res-value" id="sim-total-profit">¥0</div>
-        </div>
+        <div class="sim-res-item"><span class="sim-res-label">预计实收金额:</span><div class="sim-res-value" id="sim-actual-received">¥0</div></div>
+        <div class="sim-res-item"><span class="sim-res-label">当前设定ROI:</span><div class="sim-res-value" id="sim-display-roi">0.00</div></div>
+        <div class="sim-res-item"><span class="sim-res-label">综合利润率:</span><div class="sim-res-value" id="sim-margin-rate">0%</div></div>
+        <div class="sim-res-item"><span class="sim-res-label">预计总利润:</span><div class="sim-res-value" id="sim-total-profit">¥0</div></div>
     </div>
 </div>
 
 <script>
     function calculate() {
-        // 获取输入值
         const p = parseFloat(document.getElementById('p').value);
         const r = parseFloat(document.getElementById('r').value);
         const cg = parseFloat(document.getElementById('cg').value);
@@ -272,71 +162,49 @@
 
         if (isNaN(p) || p <= 0) return;
 
-        // 1. 单件核心利润
         const l_single = (p * (1 - r) * (1 - k2)) - ((cg + ct + ca) * (1 - r)) - (cd + ci);
         const raw_roi = (p * (1 - k1)) / l_single;
         const final_roi = l_single > 0 ? Math.ceil(raw_roi * 100) / 100 : 0;
 
-        // 更新左侧面板
         document.getElementById('res-roi').innerText = `【${final_roi.toFixed(2)}】`;
         document.getElementById('res-profit').innerText = `¥${l_single.toFixed(2)}`;
         document.getElementById('res-m1').innerText = `【${((l_single / p) * 100).toFixed(1)}%】`;
         document.getElementById('res-m2').innerText = `【${((l_single / (p * (1 - r))) * 100).toFixed(1)}%】`;
 
-        // 2. 刷新表格
         const tbody = document.querySelector('#roi-table tbody');
         tbody.innerHTML = '';
         let roiInserted = false;
-
         for (let i = 10; i < 500; i++) {
             const roiIter = i / 10.0;
-            
-            // 插入保本行
             if (!roiInserted && final_roi <= roiIter) {
-                if (final_roi < roiIter) {
-                    appendRow(final_roi.toFixed(2), "0.0%", "blue-text");
-                }
+                if (final_roi < roiIter) appendRow(final_roi.toFixed(2), "0.0%", "blue-text");
                 roiInserted = true;
             }
-
             const adRatio = (1 - k1) / roiIter;
             const pr = ((l_single / p) - adRatio) * 100;
-            const cssClass = (pr >= 0 && pr <= 10) ? "blue-text" : "";
-            appendRow(roiIter.toFixed(1), pr.toFixed(1) + "%", cssClass);
+            appendRow(roiIter.toFixed(1), pr.toFixed(1) + "%", (pr >= 0 && pr <= 10) ? "blue-text" : "");
         }
 
         function appendRow(col1, col2, className) {
             const row = tbody.insertRow();
-            const c1 = row.insertCell(0);
-            const c2 = row.insertCell(1);
-            c1.innerText = col1;
-            c2.innerText = col2;
+            row.insertCell(0).innerText = col1;
+            row.insertCell(1).innerText = col2;
             if (className) row.classList.add(className);
         }
 
-        // 3. 模拟计算 (你的核心逻辑)
         const simSales = parseFloat(document.getElementById('sim-sales').value);
         const simRoi = parseFloat(document.getElementById('sim-roi').value);
-
         const simActualReceived = simSales * (1 - r);
-        
-        // 综合利润率 (基于销售额) 保留一位小数
         const rawMarginRate = (l_single / p) - ((1 - k1) / simRoi || 0);
-        const displayMarginPct = Math.round(rawMarginRate * 100 * 10) / 10; // 保留一位小数
-
-        // 预计总利润 = 预期实收额 * (展示利润率/100)
+        const displayMarginPct = Math.round(rawMarginRate * 100 * 10) / 10;
         const simTotalProfit = simActualReceived * (displayMarginPct / 100);
 
-        // 更新右侧面板
         document.getElementById('sim-actual-received').innerText = `¥${Math.round(simActualReceived).toLocaleString()}`;
         document.getElementById('sim-display-roi').innerText = simRoi.toFixed(2);
         document.getElementById('sim-margin-rate').innerText = `${displayMarginPct}%`;
         document.getElementById('sim-total-profit').innerText = `¥${Math.round(simTotalProfit).toLocaleString()}`;
     }
-
-    // 初始化计算
     window.onload = calculate;
 </script>
-
 </body>
 </html>
